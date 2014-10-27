@@ -1,3 +1,5 @@
+// These prices are nowhere near accurate :)
+
 var productsData = {
   productsList: [
     {

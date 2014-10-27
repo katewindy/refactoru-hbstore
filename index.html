@@ -11,6 +11,10 @@
     <div id="product-container">
       
     </div>
+    <h4>Wishlist</h4>
+    <ul id="wishlist">
+      
+    </ul>
 
     <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.7.0/underscore-min.js"></script>
@@ -20,7 +24,25 @@
     <script src="products-data.js"></script>
 
     <script id="products" type="text/x-handlebars-template">
-        <div class="product"></div>
+        <div class="product">
+          <h3>{{title}}</h3>
+          <img src="{{image}}">
+          {{#if sale}}
+          <p>Price: SALE $<del>{{cost}}</del> <strong>${{sale}}</strong></p>
+          {{else}}
+          <p>Price: ${{cost}}</p>
+          {{/if}}
+          <h5>Details</h5>
+          <ul>
+          {{#each details}}
+            <li><strong>{{@key}}:</strong> {{this}}</li>
+          {{/each}}
+          </ul>
+          <button class="btn btn-primary add">Add to Wishlist</button>
+        </div>
+    </script>
+    <script type="text/x-handlebars-template" id="wishlistitem">
+      <li class="wishItem">{{title}} <button class="btn btn-primary delete">Remove</button></li>
     </script>
 
   </body>
